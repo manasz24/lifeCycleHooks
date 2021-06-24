@@ -1,0 +1,43 @@
+<template>
+<div>
+    <lightning-card title="For:each loop">
+        <template for:each ={carList} for:item='car'>
+            <ul key={car} class="slds-has-dividers_around-space">
+                <li class="slds-item">{car}</li>
+            </ul>
+        </template>
+    </lightning-card>
+</div>    
+
+
+<div>
+    <lightning-card title="iterator implemetation">
+        <template iterator:ceo={Companies}>         
+            <ul key={ceo.value.id} class="slds-has-dividers_around-space">
+                <li class="slds-item">
+                 <Strong>   {ceo.value.id} </Strong>
+                {ceo.value.Name}
+            </li>
+            </ul>
+        </template>
+    </lightning-card>
+</div>    
+
+
+<div>
+    <lightning-card title="For:each loop  on array of objects">
+        <template for:each ={Companies} for:item='item'>
+            <ul key={item} class="slds-has-dividers_around-space">
+                <li class="slds-item">{item.id}
+
+                    <strong>{item.Company}</strong>
+
+                </li>
+            </ul>
+        </template>
+    </lightning-card>
+</div>    
+
+
+
+</template>
