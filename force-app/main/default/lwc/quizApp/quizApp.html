@@ -1,0 +1,49 @@
+<template>
+
+    <lightning-card title="Quiz App in LWC">
+        <div class="slds-var-m-around_medium">
+            <form>
+            <template for:each={myQuestions} for:item="quiz" >
+                     <div key ={quiz.id} class="slds-var-p-around_medium">
+                            <div>
+                                <strong>
+                                    {quiz.id} - {quiz.question}
+                                </strong>
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col">
+                                        <input type="radio" 
+                                               name={quiz.id} 
+                                               value="A" 
+                                               onchange={changeHandler}/>
+                                      {quiz.answers.A}
+                                    </div>
+                                    <div class="slds-col">
+                                        <input type="radio" 
+                                               name={quiz.id} 
+                                               value="B" 
+                                               onchange={changeHandler}/>
+                                        {quiz.answers.B}
+                                    </div>
+                                    <div class="slds-col">
+                                        <input type="radio" 
+                                               name={quiz.id} 
+                                               value="C" 
+                                               onchange={changeHandler}/>
+                                        {quiz.answers.C}
+                                    </div>
+                                  </div>
+                            </div> 
+                     </div>
+            </template>
+            <lightning-button variant="brand" type="submit" label="submit" class="slds-var-m-around_small" onclick={submitHandler} disabled={isDisabled}></lightning-button>
+            <lightning-button variant="brand" type="reset" label="clear" class="slds-var-m-around_small" onclick={clearHandler}></lightning-button>
+            
+        </form>
+        <template if:true={isSubmitted}>
+
+            <div class={isScoredFull}> you have scored {correctAnswers} out of {myQuestions.length}</div>
+        </template>
+        
+        </div>
+    </lightning-card>
+</template>
